@@ -1,27 +1,43 @@
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import {StyleSheet, View, Text, Button,TextInput } from 'react-native'
+import React from 'react'
 
-export default function FirstPage() {
+const FirstPage = ({navigation,route}) => {
+
+const [postText, setPostText] = React.useState('');
+
   return (
-    <View>
-      <Text>FirstPage</Text>
+    <View style={styles.container}>
+      <Text style={styles.heading}>Thai-Nichi Institute of Technology</Text>
+      <Text style={styles.textStyle}>Please insert your name to pass it to second screen</Text>
+      <TextInput
+      placeholder='your name'
+      style={{ height: 50, padding: 10,marginBottom:10, backgroundColor: '#fff' }}
+      onChangeText={setPostText}
+      value={postText}
+      />
+      <Button
+      title='go next'
+      onPress={() => navigation.navigate('SecondPage',{postText})}
+      />
     </View>
-  );
+  )
 }
+
+export default FirstPage
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     padding: 20,
   },
   heading: {
     fontSize: 25,
-    textAlign: "center",
+    textAlign: 'center',
     marginVertical: 10,
   },
   textStyle: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 16,
     marginVertical: 10,
   },
