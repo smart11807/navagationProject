@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
-
 import styles from "../components/style";
 
 const FirstPage = ({ navigation }) => {
@@ -18,7 +17,7 @@ const FirstPage = ({ navigation }) => {
         />
       </View>
       <Text style={styles.textBottomSytel}>
-        thai-nichi institute of technology
+        Thai-nichi institute of technology
       </Text>
     </View>
   );

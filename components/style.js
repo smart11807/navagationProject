@@ -1,20 +1,21 @@
 import { StyleSheet } from "react-native";
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
   textTopStyle: {
-    fontSize: 25,
+    fontSize: 20,
     textAlign: "center",
     marginBottom: 16,
   },
-  textBottomSytel: {
+  textBottomStyle: {
     fontSize: 16,
     textAlign: "center",
     color: "grey",
   },
 });
-export { style };
+
+export default styles;
