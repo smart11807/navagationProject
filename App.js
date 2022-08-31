@@ -12,10 +12,11 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        // headerStyle: { backgroundColor: "blue" },
+        //  headerStyle: { backgroundColor: "blue" },
         headerStyle: { backgroundColor: "#25FF" },
         headerTintColor: "#ffff",
         headerTitleStyle: { fontWeight: "bold" },
@@ -25,5 +26,6 @@ export default function App() {
       <Stack.Screen name="Second Page" component={SecondPage} />
       <Stack.Screen name="Third Page" component={ThirdPage} />
     </Stack.Navigator>
+    </NavigationContainer>
   );
 }

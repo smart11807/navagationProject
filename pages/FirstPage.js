@@ -6,7 +6,7 @@ const FirstPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.textTopStyle}>This Is First Page</Text>
+        <Text style={styles.textTopStyle}>This is First Page</Text>
         <Button
           title="go to second page"
           onPress={() => navigation.navigate("Second Page")}
