@@ -22,5 +22,4 @@ const FirstPage = ({ navigation }) => {
     </View>
   );
 };
-
 export default FirstPage;

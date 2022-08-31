@@ -22,5 +22,4 @@ const SecondPage = ({ navigation }) => {
     </View>
   );
 };
-
 export default SecondPage;
