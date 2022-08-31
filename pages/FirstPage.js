@@ -16,7 +16,7 @@ const FirstPage = ({ navigation }) => {
           onPress={() => navigation.navigate("Third Page")}
         />
       </View>
-      <Text style={styles.textBottomSytel}>
+      <Text style={styles.textBottomStyle}>
         Thai-nichi institute of technology
       </Text>
     </View>
