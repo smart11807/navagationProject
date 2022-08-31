@@ -22,5 +22,4 @@ const ThirdPage = ({ navigation }) => {
     </View>
   );
 };
-
 export default ThirdPage;
