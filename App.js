@@ -1,31 +1,33 @@
-import { setStatusBarBackgroundColor, StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import * as React from "react";
+import { Button, View } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./Screens/HomeScreen";
-import AboutScreen from "./Screens/AboutScreen";
-import FirstPage from "./pages/FirstPage";
-import SecondPage from "./pages/SecondPage";
-import ThirdPage from "./pages/ThirdPage";
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button
+        onPress={() => navigation.navigate("Notifications")}
+        title="Go to notifications"
+      />
+    </View>
+  );
+}
 
-const Stack = createNativeStackNavigator();
+function NotificationsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        //  headerStyle: { backgroundColor: "blue" },
-        headerStyle: { backgroundColor: "#25FF" },
-        headerTintColor: "#ffff",
-        headerTitleStyle: { fontWeight: "bold" },
-      }}
-    >
-      <Stack.Screen name="First Page" component={FirstPage} />
-      <Stack.Screen name="Second Page" component={SecondPage} />
-      <Stack.Screen name="Third Page" component={ThirdPage} />
-    </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
