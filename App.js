@@ -6,15 +6,23 @@ import {
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "rgb(255,45,85)",
+  },
+};
 
 function Feed({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      {/* <Button
+      <Button
         onPress={() => navigation.navigate("Notifications")}
         title="Go to notifications"
-      /> */}
+      />
       <Text>Feed Screen</Text>
     </View>
   );
@@ -23,7 +31,7 @@ function Feed({ navigation }) {
 function Article({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      {/* <Button onPress={() => navigation.goBack()} title="Go back home" /> */}
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
       <Text>Article Screen</Text>
     </View>
   );
@@ -46,10 +54,10 @@ function MyDrawer() {
       useLegacyImplementation
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
-        drawerStyle:{
-          backgroundColor:'lightblue',
-          Width:240,
-        }
+        drawerStyle: {
+          // backgroundColor:'lightblue',
+          Width: 240,
+        },
       }}
     >
       <Drawer.Screen name="Feed" component={Feed} />
@@ -60,7 +68,7 @@ function MyDrawer() {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <MyDrawer />
     </NavigationContainer>
   );
