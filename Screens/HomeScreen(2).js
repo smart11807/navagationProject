@@ -45,9 +45,5 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
-<<<<<<< HEAD
 
 export default HomeScreen;
-=======
-export default HomeScreen;
->>>>>>> a9139ee9ca4f098da60b41e0aa516a2855ebd768
