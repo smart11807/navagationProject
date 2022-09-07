@@ -1,75 +1,45 @@
-import * as React from "react";
-import { Button, View, Text } from "react-native";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { View, Text, Button } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: "rgb(255,45,85)",
-  },
-};
-
-function Feed({ navigation }) {
+function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Home</Text>
       <Button
-        onPress={() => navigation.navigate("Notifications")}
-        title="Go to notifications"
+        title="Go to setting"
+        onPress={() => navigation.navigate("Setting")}
       />
-      <Text>Feed Screen</Text>
+    </View>
+  );
+}
+function SettingScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Setting</Text>
+      <Button title="Go to home" onPress={() => navigation.navigate("Home")} />
     </View>
   );
 }
 
-function Article({ navigation }) {
+const Tab = createBottomTabNavigator();
+
+function MyTab() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-      <Text>Article Screen</Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Setting" component={SettingScreen} />
+    </Tab.Navigator>
   );
 }
 
-function CustomDrawerContent(props) {
+const App = () => {
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem label="Help" onPress={() => alert("Link to help")} />
-    </DrawerContentScrollView>
-  );
-}
-
-const Drawer = createDrawerNavigator();
-
-function MyDrawer() {
-  return (
-    <Drawer.Navigator
-      useLegacyImplementation
-      drawerContent={(props) => <CustomDrawerContent {...props} />}
-      screenOptions={{
-        drawerStyle: {
-          // backgroundColor:'lightblue',
-          Width: 240,
-        },
-      }}
-    >
-      <Drawer.Screen name="Feed" component={Feed} />
-      <Drawer.Screen name="Article" component={Article} />
-    </Drawer.Navigator>
-  );
-}
-
-export default function App() {
-  return (
-    <NavigationContainer theme={MyTheme}>
-      <MyDrawer />
+    <NavigationContainer>
+      <MyTab />
     </NavigationContainer>
   );
-}
+};
+
+export default App;
