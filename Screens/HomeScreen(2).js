@@ -1,19 +1,19 @@
+import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
-import { Feather } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import {
-  HeaderButton,
   HeaderButtons,
+  HeaderButton,
   Item,
   HiddenItem,
   OverflowMenu,
 } from "react-navigation-header-buttons";
-import { Ionicons } from "@expo/vector-icons";
 
 const IoniconsHeaderButton = (props) => (
   <HeaderButton IconComponent={Ionicons} iconSize={23} {...props} />
 );
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreenDrwaer = ({ navigation }) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -21,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
           <Item
             title="register"
             iconName="person-add"
-            onPress={() => alert("ลงทะเบียน")}
+            onPress={() => alert("register")}
           />
         </HeaderButtons>
       ),
@@ -30,20 +30,13 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Feather name="home" size={30} color="#ff4465" />
-      <Text>Home Screen</Text>
-      <Button
-        title="เกี่ยวกับเรา"
-        onPress={() =>
-          navigation.navigate("About", {
-            email: "reactnative.tni.ac.th",
-          })
-        }
-        Title="OPEN DRAWER"
-        OnPress={() => navigation.openDrawer()}
-      />
+      <Ionicons name="home" size={30} color="#008b8b" />
+      <Text>HomeScreen</Text>
+      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
     </View>
   );
 };
 
-export default HomeScreen;
+export default HomeScreenDrwaer;
+
+const styles = StyleSheet.create({});
